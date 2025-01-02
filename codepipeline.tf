@@ -112,7 +112,7 @@ resource "aws_codepipeline" "cicd_pipeline" {
       name            = "Deploy"
       category        = "Deploy"
       owner           = "AWS"
-      provider        = "CloudFormation"
+      provider        = "CloudBuild"
       input_artifacts = ["source_output"]
       version         = "1"
 
