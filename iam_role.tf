@@ -63,7 +63,7 @@ resource "aws_iam_role_policy" "cicd_codebuild_policy" {
     Version = "2012-10-17"
     Statement = [
       {
-        Action   = ["logs:*", "s3:*", "codebuild:*", "secretsmanager:*", "iam:*"]
+        Action   = ["logs:*", "s3:*", "codebuild:*", "secretsmanager:*", "iam:*","codepipeline:GetPipeline"]
         Resource = ["*"]
         Effect   = "Allow"
       }
