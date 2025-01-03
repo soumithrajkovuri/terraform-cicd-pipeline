@@ -105,20 +105,20 @@ resource "aws_codepipeline" "cicd_pipeline" {
     }
   }
 
-#   stage {
-#     name = "Deploy"
+  stage {
+    name = "Deploy"
 
-#     action {
-#       name            = "Deploy"
-#       category        = "Deploy"
-#       owner           = "AWS"
-#       provider        = "CloudBuild"
-#       input_artifacts = ["source_output"]
-#       version         = "1"
+    action {
+      name            = "Deploy"
+      category        = "Build"
+      owner           = "AWS"
+      provider        = "CodeBuild"
+      input_artifacts = ["source_output"]
+      version         = "1"
 
-#       configuration = {
-#         ProjectName = "tf-cicd-apply"
-#       }
-#     }
-#   }
+      configuration = {
+        ProjectName = "tf-codebuild-apply"
+      }
+    }
+  }
 }
