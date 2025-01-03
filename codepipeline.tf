@@ -100,7 +100,7 @@ resource "aws_codepipeline" "cicd_pipeline" {
       version          = "1"
 
       configuration = {
-        ProjectName = "tf-cicd-plan"
+        ProjectName = "tf-codebuild-plan"
       }
     }
   }
