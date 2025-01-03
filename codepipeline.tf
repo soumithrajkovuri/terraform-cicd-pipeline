@@ -83,6 +83,7 @@ resource "aws_codepipeline" "cicd_pipeline" {
         ConnectionArn    = var.codestar_connector_credentials
         FullRepositoryId = "soumithrajkovuri/terraform-cicd-pipeline"
         BranchName       = "main"
+        OutputArtifactFormat = "CODE_ZIP"
       }
     }
   }
@@ -96,7 +97,6 @@ resource "aws_codepipeline" "cicd_pipeline" {
       owner            = "AWS"
       provider         = "CodeBuild"
       input_artifacts  = ["source_output"]
-      output_artifacts = ["plan_output"]
       version          = "1"
 
       configuration = {
