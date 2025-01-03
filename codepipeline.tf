@@ -77,7 +77,7 @@ resource "aws_codepipeline" "cicd_pipeline" {
       owner            = "AWS"
       provider         = "CodeStarSourceConnection"
       version          = "1"
-      output_artifacts = ["tf-code"]
+      output_artifacts = ["source_output"]
 
       configuration = {
         ConnectionArn    = var.codestar_connector_credentials
@@ -96,7 +96,7 @@ resource "aws_codepipeline" "cicd_pipeline" {
       category         = "Build"
       owner            = "AWS"
       provider         = "CodeBuild"
-      input_artifacts  = ["tf-code"]
+      input_artifacts  = ["source_output"]
       version          = "1"
 
       configuration = {
